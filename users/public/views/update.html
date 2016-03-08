@@ -1,0 +1,66 @@
+<div data-ng-controller="UpdateController as update" data-ng-init="update.findOne()">
+  <div ng-repeat="error in update.updateError">
+        <div class="alert alert-danger animated fadeIn">{{error.msg}}</div>
+    </div>
+    <div class="alert alert-danger animated fadeIn" ng-show="update.usernameError">{{update.usernameError}}</div>
+    <div class="alert alert-danger animated fadeIn" ng-show="update.emailError">{{update.emailError}}</div>
+    <form id="register_form" ng-submit="update.update()">
+        <h2>Update Profile</h2>
+
+        <div class="input-wrapper">
+            <input required id="name" type="text" name="name" placeholder="Full Name"
+                   ng-model="update.user.name">
+
+            <div class="error_message">Please enter a correct info #</div>
+            <span class="pic user"></span>
+        </div>
+
+        <div class="input-wrapper">
+            <input required id="email_block" type="email" name="email" placeholder="Email Address"
+                   ng-model="update.user.email">
+
+            <div class="error_message">Please enter a correct info #</div>
+            <span class="pic email"></span>
+        </div>
+
+        <div class="input-wrapper">
+            <input required id="username" type="text" name="username" placeholder="Username"
+                   ng-model="update.user.username">
+
+            <div class="error_message">Please enter a correct info #</div>
+            <span class="pic username"></span>
+        </div>
+
+        <div class="input-wrapper">
+            <input required id="password_block" name="password" type="{{update.input.type}}"
+                   placeholder="{{update.input.placeholder}}" ng-model="update.user.password">
+
+            <div class="error_message">Please enter a correct info #</div>
+        <span class="pic password {{update.input.iconClass}}" ng-click="update.togglePasswordVisible()">
+              <div class="hide_text_pas sword">
+                  {{update.input.tooltipText}}
+              </div>
+        </span>
+        </div>
+        <div class="input-wrapper">
+            <input required id="confirm_password" name="confirm_password" type="{{update.input.type}}"
+                   placeholder="{{update.input.placeholderConfirmPass}}" ng-model="update.user.confirmPassword">
+
+            <div class="error_message">Please enter a correct info #</div>
+        <span class="pic password {{update.input.iconClassConfirmPass}}" ng-click="update.togglePasswordConfirmVisible()">
+              <div class="hide_text_password">
+                  {{update.input.tooltipTextConfirmPass}}
+              </div>
+        </span>
+        </div>
+
+        <div class="button_register">
+            <button type="submit" class="submit_button">Update</button>
+            <!--<p>Already have an account?</p>
+            <a ui-sref='auth.login'>Log in</a>--> 
+        </div>
+        <div class="woman_ninja_bottom">
+            <img src="/theme/assets/img/woman_ninja.png" alt="#">
+        </div>
+    </form>
+</div>  
